@@ -1,10 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../CartContext";
+
+
 const Navigation = () => {
+    const{cart}=useContext(CartContext);
+    //console.log(cart);
+
         const cartStyle={
             background:'#f59e0d',
             display:'flex',
             borderRadius:10,
-            padding:2
+            padding:3
         }
 
     return (
@@ -20,7 +27,7 @@ const Navigation = () => {
                         <li className='ml-6'>
                             <Link to='/cart'>
                                 <div style={cartStyle}>
-                                    <span >10</span>
+                                    <span >{cart.totalItems}</span>
                                     <img src='/images/cart.png' alt="cart-icon" className="ml-2"></img>
                                 </div>
                             </Link>
